@@ -1,49 +1,99 @@
-# TP Python : Listes, Tuples et Optimisation avec Fonctions Built-in
+# 🧪 Python Lab – Lists, Tuples & Code Optimization Using Built-in Functions
 
 ---
 
-## ✅ Exercice 1 : Manipulation de Listes
+## ✅ Exercise 1: Working with Lists
 
-**Objectif** : Créer et manipuler une liste d'étudiants.
+**Objective**: Create and manipulate a list of students.
 
-**Énoncé** :  
-Un professeur souhaite gérer la liste des étudiants inscrits à un cours. On vous demande d’écrire un programme qui effectue les opérations suivantes :
+**Instructions**:  
+A professor wants to manage the list of students enrolled in a course. Write a Python program that performs the following steps:
 
-1. Demander à l’utilisateur de saisir le nombre d’étudiants à inscrire.
-2. Pour chaque étudiant, demander le nom et l’ajouter à une liste.
-3. Afficher la liste complète des étudiants.
-4. Afficher la liste triée en ordre alphabétique.
-5. Afficher le nombre total d’étudiants.
-6. Supprimer un nom (saisi par l’utilisateur) de la liste, s’il existe, et afficher la nouvelle liste.
-
----
-
-## ✅ Exercice 2 : Utilisation des Tuples
-
-**Objectif** : Travailler avec les tuples pour stocker des coordonnées.
-
-**Énoncé** :  
-On vous demande d’écrire un programme pour gérer des coordonnées géographiques sous forme de tuples `(latitude, longitude)`.
-
-1. Créez une liste contenant 3 tuples représentant des villes :
-   - Paris : (48.8566, 2.3522)
-   - New York : (40.7128, -74.0060)
-   - Tokyo : (35.6895, 139.6917)
-2. Affichez chaque ville avec ses coordonnées.
-3. Affichez uniquement les latitudes des 3 villes (en utilisant une boucle).
-4. Calculez la latitude moyenne de ces 3 villes.
+1. Ask the user for the number of students to register.
+2. For each student, ask for their name and add it to a list.
+3. Display the complete list of students.
+4. Display the list sorted in alphabetical order.
+5. Display the total number of students.
+6. Ask the user for a name to remove from the list. If it exists, remove it and display the updated list.
 
 ---
 
-## ✅ Exercice 3 : Correction et Optimisation de Code avec Listes et Tuples
+## ✅ Exercise 2: Working with Tuples
 
-**Objectif** : Corriger un code et l’optimiser en utilisant des **fonctions Python intégrées** avec des **listes et des tuples**.
+**Objective**: Practice storing and processing geographical coordinates using tuples.
 
-**Énoncé** :  
-Vous disposez d’une liste de tuples. Chaque tuple contient deux éléments :
+**Instructions**:  
+Write a Python program to manage geographical coordinates stored as `(latitude, longitude)` tuples.
 
-- Un **nom**
-- Un **nombre entier**
+1. Create a list of 3 tuples, each representing a city:
+   - Paris: (48.8566, 2.3522)  
+   - New York: (40.7128, -74.0060)  
+   - Tokyo: (35.6895, 139.6917)
+2. Display each city along with its coordinates.
+3. Use a loop to display only the **latitude** of each city.
+4. Compute and display the **average latitude** of all 3 cities.
 
-```python
-donnees = [("Alice", 4), ("Bob", 7), ("Charlie", 2), ("Diana", 6)]
+---
+
+## ✅ Exercise 3: Code Fixing and Optimization with Lists & Tuples
+
+**Objective**: Analyze a poorly written code snippet that uses lists and tuples, and optimize it using **built-in Python functions**, **list comprehensions**, and **good practices**.
+
+**Instructions**:  
+You are given a list of tuples. Each tuple contains:
+
+- A name (`str`)
+- A list of integers representing scores for different tasks.
+
+```
+# Example data
+data = [
+    ("Alice", [14, 16, 18]),
+    ("Bob", [12, 9, 10]),
+    ("Charlie", [19, 20, 17]),
+    ("Diana", [8, 7, 10])
+]
+```
+
+Your task is to:
+
+1. Identify students whose **average score is >= 15**.
+2. Display a list of names of these students.
+3. Display the **highest individual score** among **all** students.
+4. Count how many students have at least one score **below 10**.
+5. Rewrite and optimize the following **inefficient code** that performs a similar task:
+
+```
+# Poorly written and repetitive code
+data = [("Alice", [14, 16, 18]), ("Bob", [12, 9, 10]), ("Charlie", [19, 20, 17]), ("Diana", [8, 7, 10])]
+selected = []
+high = 0
+count = 0
+
+for i in range(len(data)):
+    total = 0
+    for j in range(len(data[i][1])):
+        score = data[i][1][j]
+        total += score
+        if score > high:
+            high = score
+        if score < 10:
+            count += 1
+            break
+    average = total / len(data[i][1])
+    if average >= 15:
+        selected.append(data[i][0])
+
+print("Selected students:", selected)
+print("Highest score:", high)
+print("Students with at least one score < 10:", count)
+```
+
+---
+
+### 🔧 **Expected Output**:
+```
+Selected students: ['Alice', 'Charlie']
+Highest score: 20
+Students with at least one score < 10: 2
+```
